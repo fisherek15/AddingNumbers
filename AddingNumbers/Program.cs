@@ -48,7 +48,7 @@ namespace AddingNumbers
                 }
                 else
                 {
-                    Console.WriteLine("Can't add numbers. Wrong numbers.");
+                    Console.WriteLine("Can't add numbers. Wrong parameters.");
                 } 
             }
         }
