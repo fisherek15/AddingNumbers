@@ -19,25 +19,21 @@ namespace AddingNumbers
             { "eight", 8 },
             { "nine", 9 }
         };
-
-        static string numbersInLine;
-        static string[] separatedNumbers;
-        static int sum;
       
         static void Main(string[] args)
         {
             Console.Write("Give me numbers separated by space: ");
-            numbersInLine = Console.ReadLine();
-            SeparateNumbers(numbersInLine);
-            AddingNumbers(separatedNumbers);
-            //AddingNumbers("1", "3", "nine", "0", "five", "three");
+            string numbersInLine = Console.ReadLine().ToLower(); ;
+            string[] separatedNumbers = SeparateNumbers(numbersInLine);
+            int sum = AddingNumbers(separatedNumbers);         
             Console.WriteLine("\nSum of given numbers is: " + sum);
         }
 
-        static void AddingNumbers(params string[] numbers)
+        static int AddingNumbers(params string[] numbers)
         {
+           int sum = 0;
            foreach (string number in numbers)
-            {           
+            {                
                 if (int.TryParse(number, out int num))
                 {
                     sum += num;
@@ -51,11 +47,12 @@ namespace AddingNumbers
                     Console.WriteLine("Can't add numbers. Wrong parameters.");
                 } 
             }
+            return sum;
         }
 
         static string[] SeparateNumbers(string line)
         {
-            return separatedNumbers = line.Split(' ');
+            return line.Split(' ');
         }
     }
 }
